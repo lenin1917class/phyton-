@@ -1,0 +1,455 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP5EPoxxNV15sQYuGg8mDFk",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/lenin1917class/phyton-/blob/main/P1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kmwwt98lc44v",
+        "outputId": "5a8d0e69-130f-4b5b-d913-9d62cfa8c47b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x(1)=1.2897196\n",
+            "x(2)=1.1495327\n",
+            "x(3)=1.6074766\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "<ipython-input-9-d80c8f46a75d>:11: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)\n",
+            "  print(\"x(%i)=%.7f\" % (i+1,x[i]))\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "from sc\n",
+        "\n",
+        "ipy.linalg import *\n",
+        "A = np.array([\n",
+        "    [3,-2,4],\n",
+        "    [-1,0,12],\n",
+        "    [4,3,-1]\n",
+        "])\n",
+        "b = np.array([8,18,7]).reshape(3,1)\n",
+        "x=solve(A,b)\n",
+        "for i in range(len(b)):\n",
+        "  print(\"x(%i)=%.7f\" % (i+1,x[i]))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy.linalg import*\n",
+        "A = np.array([\n",
+        "    [3,6,7],\n",
+        "    [2,3,1],\n",
+        "    [6,5,4]\n",
+        "])B = inv(A)\n",
+        "B"
+      ],
+      "metadata": {
+        "id": "MB4pSWv_ts8j",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "11aca669-0607-4349-ea4a-83244cb3d732"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[-0.14893617, -0.23404255,  0.31914894],\n",
+              "       [ 0.04255319,  0.63829787, -0.23404255],\n",
+              "       [ 0.17021277, -0.44680851,  0.06382979]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy.linalg import*\n",
+        "A = np.array([\n",
+        "    [3,6,7],\n",
+        "    [2,3,1],\n",
+        "    [6,5,4]\n",
+        "])\n",
+        "B= inv(A)\n",
+        "A.dot(B)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "n8s9R7q6MNY6",
+        "outputId": "57787535-9f9c-44d8-9348-eb3e6b9ffda0"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[ 1.00000000e+00,  1.11022302e-16, -1.38777878e-17],\n",
+              "       [-5.55111512e-17,  1.00000000e+00, -4.16333634e-17],\n",
+              "       [-1.11022302e-16,  4.44089210e-16,  1.00000000e+00]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy import linalg\n",
+        "A= np.array([\n",
+        "    [3,6,7],\n",
+        "    [2,3,1],\n",
+        "    [6,5,4]])\n",
+        "B=linalg.det(A)\n",
+        "print(B)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZlOoRP0l0fMC",
+        "outputId": "d823e779-76ab-46a0-f7e0-3779dea887fe"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "-47.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np;from scipy import linalg\n",
+        "A= np.array([[-1,-6],[2,6]]);linalg.eig(A)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cGCpj2R621wr",
+        "outputId": "3f75ccf9-9be2-4b19-b825-cbfd1d9003ae"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([2.+0.j, 3.+0.j]),\n",
+              " array([[-0.89442719,  0.83205029],\n",
+              "        [ 0.4472136 , -0.5547002 ]]))"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy.linalg import*\n",
+        "a = ([7])\n",
+        "b = ([3])\n",
+        "y = ([1])\n",
+        "o = ([2])\n",
+        "u = ([0])\n",
+        "v = ([5])\n",
+        "A=np.array([\n",
+        "    [2,3+a,4-u],\n",
+        "    [b,y,v],\n",
+        "    [5,10*u,-2]])\n",
+        "B=np.array([\n",
+        "    [b,-3,4+u],\n",
+        "    [a,4,v],\n",
+        "    [5*u,10,-2]])\n",
+        "C=np.array([\n",
+        "    [-1,3+u,4-v],\n",
+        "    [2,1,v],\n",
+        "    [5,5-u,-2]])\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 211
+        },
+        "id": "A4-imsqX4L7y",
+        "outputId": "84b15ea3-64c6-44ef-ff84-7b6958a0bc10"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "unsupported operand type(s) for +: 'int' and 'list'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-28-9f800b1def8e>\u001b[0m in \u001b[0;36m<cell line: 9>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0mv\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m5\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m A=np.array([\n\u001b[0;32m---> 10\u001b[0;31m     \u001b[0;34m[\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m3\u001b[0m\u001b[0;34m+\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m4\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0mu\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     11\u001b[0m     \u001b[0;34m[\u001b[0m\u001b[0mb\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0my\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mv\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m     [5,10*u,-2]])\n",
+            "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for +: 'int' and 'list'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "wxi3VJLC_XBt"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Untitled2"
+      ],
+      "metadata": {
+        "id": "-SROyvuS_X0c"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy.linalg import*\n",
+        "a: int = 7\n",
+        "b: int = 3\n",
+        "y: int = 1\n",
+        "o: int = 2\n",
+        "u: int = 0\n",
+        "v: int = 5\n",
+        "A=np.array([\n",
+        "    [2,3+a,4-u],\n",
+        "    [b,y,v],\n",
+        "    [5,10*u,-2]\n",
+        "    ])\n",
+        "B=np.array([\n",
+        "    [b,-3,4+u],\n",
+        "    [a,4,v],\n",
+        "    [5*u,10,-2]\n",
+        "    ])\n",
+        "C=np.array([\n",
+        "    [-1,3+u,4-v],\n",
+        "    [2,1,v],\n",
+        "    [5,5-u,-2]\n",
+        "    ])\n",
+        "x=A*B*C\n",
+        "print (x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cZ_2VeSU_gRM",
+        "outputId": "b2917f10-9ce6-4f8a-c6c7-b39686bed76a"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[ -6 -90 -16]\n",
+            " [ 42   4 125]\n",
+            " [  0   0  -8]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "X6L6dyPHAy3l"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "jhg"
+      ],
+      "metadata": {
+        "id": "Wly2gWNRAezd"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy.linalg import*\n",
+        "a: int = 7\n",
+        "b: int = 3\n",
+        "y: int = 1\n",
+        "o: int = 2\n",
+        "u: int = 0\n",
+        "v: int = 5\n",
+        "G = [\n",
+        "    [2,3+a,4+u,6],\n",
+        "    [b+1,y,v,12],\n",
+        "    [5,-2,16,u+1],\n",
+        "    [2,7,11,-6],\n",
+        "]\n",
+        "GG = inv(G)\n",
+        "GG\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tHvkytWwAhC8",
+        "outputId": "69431d6c-e968-495e-cd94-463a92581dbc"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[-2.47159091,  2.69034091, -1.99431818,  2.57670455],\n",
+              "       [-0.01136364,  0.07386364, -0.10227273,  0.11931818],\n",
+              "       [ 0.73863636, -0.80113636,  0.64772727, -0.75568182],\n",
+              "       [ 0.51704545, -0.48579545,  0.40340909, -0.55397727]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy.linalg import  *\n",
+        "a: int = 7\n",
+        "b: int = 3\n",
+        "y: int = 1\n",
+        "o: int = 2\n",
+        "u: int = 0\n",
+        "v: int = 5\n",
+        "G = np.array([\n",
+        "    [2,3+a,4+u,6],\n",
+        "    [b+1,y,v,12],\n",
+        "    [5,-2,16,u+1],\n",
+        "    [2,7,11,-6]])\n",
+        "A = linalg.det (G)\n",
+        "print(A)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "waC9N24BIsyg",
+        "outputId": "d4bcbb78-28f5-4d9c-94d0-90e939ff6ece"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "703.9999999999999\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy import linalg\n",
+        "G = np.array([\n",
+        "    [2,3+a,4+u,6],\n",
+        "    [b+1,y,v,12],\n",
+        "    [5,-2,16,u+1],\n",
+        "    [2,7,11,-6]\n",
+        "])\n",
+        "linalg.eig(G)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "F05C1eRqLgEI",
+        "outputId": "41186789-2f40-4ec7-d1ac-1db2caa00914"
+      },
+      "execution_count": 44,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([ 19.91795019+0.j, -13.07510175+0.j,  -0.41153288+0.j,\n",
+              "          6.56868444+0.j]),\n",
+              " array([[-0.53994009, -0.15691576,  0.94073508, -0.81489777],\n",
+              "        [-0.51171975,  0.64355049,  0.00258725, -0.45902024],\n",
+              "        [-0.53130532,  0.0968026 , -0.2741266 ,  0.34364371],\n",
+              "        [-0.40536682, -0.74286572, -0.19966328, -0.08456386]]))"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 44
+        }
+      ]
+    }
+  ]
+}
