@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyP/Npk20HtqaukMR6DVlHSi",
+      "authorship_tag": "ABX9TyNt5U+f77rQJMFsEdwufhoH",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -50,7 +50,7 @@
         "id": "6QRL_41xapl7",
         "outputId": "e441246e-6bdf-4b71-f476-d0dd42d72294"
       },
-      "execution_count": 8,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "display_data",
@@ -85,7 +85,7 @@
         "id": "hxjAUeyepS2I",
         "outputId": "f78c31ee-f896-49af-801e-9da0217edc63"
       },
-      "execution_count": 14,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -124,7 +124,7 @@
         "id": "_RY1Awo9pbyn",
         "outputId": "4f0c1f18-d9b4-4889-bb46-7b0dbb942bfa"
       },
-      "execution_count": 11,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "display_data",
@@ -162,7 +162,7 @@
         "id": "m0pgL3TlvdP_",
         "outputId": "1e67ea6c-b055-4aa8-e527-60652e022bdd"
       },
-      "execution_count": 16,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -199,7 +199,7 @@
         "id": "iS_mRa_lvml-",
         "outputId": "7a19c972-82ef-46eb-939f-0ef735944ed9"
       },
-      "execution_count": 27,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -216,10 +216,110 @@
     {
       "cell_type": "code",
       "source": [
-        "  jw6 MOUJ%"
+        "import scipy.optimize; import numpy as np\n",
+        "a,b=2,3\n",
+        "def f(x): return x**3*np.log(x) - 6*x*np.sin(x)-12\n",
+        "z = scipy.optimize.root_scalar(f, bracket=[a,b], method='brentq')\n",
+        "print(\"Корень уравнения %.4f\" % z.root)\n",
+        "print(\"Количество итераций %i\" % z.iterations)\n",
+        "print(\"Функция вызывалась %i раз\" % z.function_calls)"
       ],
       "metadata": {
-        "id": "J1iz8WaTwBUW"
+        "id": "J1iz8WaTwBUW",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "14e06fdc-8405-47f7-85d4-84efefe5d78e"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Корень уравнения 2.6846\n",
+            "Количество итераций 8\n",
+            "Функция вызывалась 9 раз\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import scipy.optimize; import numpy as np; a,b=2,3\n",
+        "def f(x):\n",
+        " return x**3*np.log(x) - 6*x*np.sin(x)-12\n",
+        "z = scipy.optimize.root_scalar(f,bracket=[a,b],method='ridder')\n",
+        "print(\"Корень уравнения %.4f\" % z.root)\n",
+        "print(\"Количество итераций %i\" % z.iterations)\n",
+        "print(\"Функция вызывалась %i раз\" % z.function_calls)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GsUHrusCPYh2",
+        "outputId": "24e61b7e-cf20-4317-b731-39e18e7ea7a9"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Корень уравнения 2.6846\n",
+            "Количество итераций 5\n",
+            "Функция вызывалась 12 раз\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import scipy.optimize\n",
+        "import numpy as np\n",
+        "def f(x):\n",
+        " return x**3*np.log(x) - 6*x*np.sin(x)-12\n",
+        "z = scipy.optimize.root(f, x0=3)\n",
+        "z\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "acz9KUvORFQ0",
+        "outputId": "5d0749d3-d203-4831-84ff-7670c948794d"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              " message: The solution converged.\n",
+              " success: True\n",
+              "  status: 1\n",
+              "     fun: [ 3.553e-15]\n",
+              "       x: [ 2.685e+00]\n",
+              "  method: hybr\n",
+              "    nfev: 8\n",
+              "    fjac: [[-1.000e+00]]\n",
+              "       r: [-4.037e+01]\n",
+              "     qtf: [-2.620e-09]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "q65B90bfbQwy"
       },
       "execution_count": null,
       "outputs": []
